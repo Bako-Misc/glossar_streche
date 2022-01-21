@@ -17,31 +17,52 @@ library(kableExtra)
 library(dplyr)
 
 
-Begriff <- c("Neuer Silvester ", "Alter Silvester","Schuppel","Wüeschti","Schö-Wüeschti","Schöni","Spasschläuse",
-          "Rolle","Schelle","Rolli","Schelli","Vorrolli","Noerolli","Rollewyb","Go chlause","Achlause/Anechlause",
-          "Wegchlause","Öberechlause","S’ Johr uschlause","S’ Johr iichlause","Strech","Zauren","Ein Zäuerli nehmen",
-          "Schellenschütten","Groscht","Hääss","Chräs /Chrees","Rote Fetze","Ladehose","Sennehemp/Edelwysshemp",
-          "Armstössli","Strick","Läderlig","Bschläglig","Herkuleshoseträger","Schluch","Gümmele","Iichreese",
-          "Chügele/chrällele/perlele","Kördele","D’ War umetue","Blaare","Bechüe","Schlorziflade","Vesper")
-
-
+Begriff <- c("Neuer Silvester ", "Alter Silvester","Schuppel","Goofeschüppeli")
 
 Beschreibung <- c("31. Dezember nach der Kalenderreform von Papst Gregor 1584.",
-                 "13. Januar, Neujahr vor der Kalenderreform von 1584 durch Papst Gregor. Dass der alte Silvester gefeiert wird, geht auf den Widerstand der reformierten Ausserrhoder:innen zurück, die sich nicht vom Papst vorschreiben lassen wollten, wann das neue Jahr zu feiern sei. Lange blieben in den Schriften noch beide Daten im Umlauf.",
-"Gruppe von mehreren, meist sechs und mehr Chläusen, jeweils einer hinter dem anderen gehend",
-"Chläuse sind in Naturmaterialien gewandet, oft mit furchterregenden Papiermaché-Larven, häufig auch mit richtigen Hörnern von Kühen oder Rehböcken etc. ausgestattet.","Chläuse in Naturmaterialien gewandet, mit Larve und Hut aus Naturmaterialien; manchmal am Rücken eine Art gestaltetes Fenster zu einem ausgewählten Thema des Schuppels. Die Naturmaterialien, vielfach sehr fein gemustert, werden mithilfe von Gummifäden regelmässig eingezogen, angenäht oder aufgeklebt und für alle Schuppelmitglieder einheitlich, bzw. ähnlich gestaltet. Schö-wüeschti Chläuse werden auch Naturchläuse genannt.","	Angeführt von einem Vorrolli (s.u.) in Frauenkleidern, folgen die Schelli in Samthosen und Samtoberteil unterschiedlicher Farben - oft in der Reihenfolge gelb, grün, rot, schwarz oder blau - gekleidet, tragen eine Kunststofflarve und auf dem Kopf eine reich mit Chügeli (Kügelchen), Kordeln und Spiegeli (Spiegelchen) verzierte Haube mit thematisch ausgerichteten Schnitzereien, Figuren oder Bildern. Den Abschluss bildet ein Noerolli (s.u.), wiederum in Frauenkleidern.
-Die Haube eines jeden Rolli und die Hüte eines jeden Schelli zeigen je einen Teil des gewählten Themas. Die Hauben des Vor- und Noerolli sind oftmals höher und prächtiger dekoriert als die Hüte der Schelli.",
-"	Einzelchläuse – meist auch in Gruppen – in zusammengesuchter Kleidung, manchmal auch Lompechläus (Lumpenchläuse) genannt.","Runde, geschlitzte Glocke, wie sie früher im Pferdegeschirr eingesetzt wurde","Grosse bauchige Kuhglocke",
-"Chlaus der vor der Brust und am Rücken eine gerade Anzahl Rollen trägt.","Chlaus, der vor der Brust und meist auch am Rücken eine Schelle trägt","	Chlaus, der mit mehreren auf gepolsterten Lederriemen befestigten Rollen vor der Brust und am Rücken am Anfang des Schuppels geht.","Chlaus mit Rollen, der am Ende des Schuppels geht","Schöner Chlaus in Frauenkleidern mit Rollen","Als Chlaus von Haus zu Haus gehen oder an bestimmten Zeitpunkten des Feiertages zu Chlausentreffen gehen","Chläuse nähern sich, rhythmisch die Rollen schüttelnd und die Schellen schwingend, einem Haus oder Hof","Chläuse entfernen sich von einem Haus oder einem Hof","Am Neuen Silvester über Mitternacht hinaus ins neue Jahr hinein chlausen und zauren. Nicht jede Gemeinde kennt das Öberechlause","Am Neuen Silvester das Jahresende auschlausen und auszauren","Am Neuen Silvester das neue Jahr nach Mitternacht mit Chlausen und Zauren empfangen",
-"Festgelegte Route von Haus zu Haus, von Hof zu Hof, welche ein Schuppel zurücklegt","Wortloses Jodeln, mehrstimmig mit Kehlkopfschlag","Einen Naturjodel singen","Schellen schwingen, zum Klingen bringen","Kleidung (Hosen, pellerinenartiger Mantel) der Chläuse, die Naturmaterialien tragen","Gewand, Kleid","Tannenreisig","Rotgemustertes Baumwolltuch, wird als Halstuch zum Edelweisshemd und zur «Ladehose» getragen","Dunkelbraune Hose aus dickem Baumwollstoff mit quadratischem Latz","Hellblaues Männerhemd mit eingewebten Edelweiss-Blumen","Von Hand gestrickte Halbärmel mit Lochmuster aus weissem Garn für die Rolli bei den schönen Chläusen","Strick, der die Schellen der Schelli hält","Gepolsterter Lederriemen, der die Rollen hält", "Mit Messingelementen – Kuh, Senn etc. - beschlagener Hosenträger","Dehnbarer Hosenträger, wie ihn die Kinder unter dem Groscht tragen","Trinkhalm oder Gummischlauch, der zum Trinken nach dem Zauren gereicht wird, um das Trinken mit der Larve zu erleichtern. Den «eigenen» Trinkschlauch tragen manche Chläuse im Hosensack mit",
-"Einziehen von Gummifäden ins Groscht (s.o.), welche es erlauben, die Naturmaterialien regelmässig und einheitlich wirken zu lassen","Den Groscht machen","Kügelchen nach vorgegebenem Muster aufnähen","Kordeln aufnähen",
-"Die Groscht/Gwand an die Ausgangsstelle des Strechs oder bei Regen an die Stelle des Gwandwechsels bringen","Weinen",
-"Kleine Kühe mit Beinen und Kopf aus entsprechend gewachsenen und eingekürzten Ästen","Kuchen- oder Blätterteig mit Birnenweggenmasse und einem Guss aus Rahm und Ei und Mehl","Zeit am späteren Nachmittag")
+                 "13. Januar, Neujahr vor der Kalenderreform von 1584 durch Papst Gregor. Dass der alte Silvester gefeiert wird, geht auf den Widerstand der reformierten Ausserrhoder_innen zurück, die sich nicht vom Papst vorschreiben lassen wollten, wann das neue Jahr zu feiern sei. Lange blieben in den Schriften noch beide Daten im Umlauf.","Gruppe von mehreren, meist sechs und mehr Chläusen, jeweils einer hinter dem anderen gehend.","Kinderschuppel")
+
+data_table1 <- data.frame(Begriff, Beschreibung)
+
+knitr::kable(data_table1) %>% kable_styling(latex_options=c("scale_down", "HOLD_position"))
+```
+
+ 
+
+**Man unterscheidet 4 Gruppen von Schuppeln:**
 
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-data_table <- data.frame(Begriff, Beschreibung)
+Begriff <- c("Wüeschti", "Schö-Wüeschti","Schöni","Spasschläuse")
 
-knitr::kable(data_table, caption = "In dieser Studie verwendete Begriffe und ihre jeweilige Erklärung") %>% kable_styling(latex_options=c("scale_down", "HOLD_position"))
+Beschreibung <- c("Chläuse sind in Naturmaterialien gewandet, oft mit furchterregenden Papiermaché-Larven, häufig auch mit Hörnern von Kühen oder Rehböcken etc. ausgestattet.",
+                 "Chläuse in Naturmaterialien gewandet, mit Larve und Hut aus Naturmaterialien; manchmal am Rücken eine Art gestaltetes Fenster zu einem ausgewählten Thema des Schuppels. Die Naturmaterialien werden mithilfe von Gummifäden regelmässig eingezogen, angenäht oder aufgeklebt und für alle Schuppelmitglieder einheitlich, bzw. ähnlich gestaltet. Schö-wüeschte Chläuse werden auch Naturchläuse genannt.","Angeführt von einem Vorrolli (s.u.) in Frauenkleidern, folgen die Schelli in Samthosen und Samtoberteil unterschiedlicher Farben, oft in der Reihenfolge gelb, grün, rot, schwarz oder blau, gekleidet, tragen eine Kunststofflarve und auf dem Kopf eine reich mit Chügeli (Kügelchen), Kordeln und Spiegeli (Spiegelchen) verzierte Haube mit thematisch ausgerichteten Schnitzereien, Figuren oder Bildern. Den Abschluss bildet ein Noerolli (s.u.), wiederum in Frauenkleidern.
+Die Haube eines jeden Rolli und die Hüte eines jeden Schelli zeigen je einen Teil des gewählten Themas. Die Hauben des Vor- und Noerolli sind oftmals höher und prächtiger dekoriert als die Hüte der Schelli.
+","Einzelchläuse – meist auch in Gruppen – in zusammengesuchter Kleidung, manchmal auch Lompechläus (Lumpenchläuse) genannt.")
+
+data_table2 <- data.frame(Begriff, Beschreibung)
+
+knitr::kable(data_table2) %>% kable_styling(latex_options=c("scale_down", "HOLD_position"))
+```
+
+  
+**Grundsätzlich gibt es bei allen vier Arten Rollen- und Schellenchläuse.**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Begriff <- c("Rolle", "Schelle","Rolli","Schelli",
+             "Vorrolli", "Noerolli","Rollewyb","Go chlause",
+             "Zuechlause/Achlause/Anechlause", "Wegchlause","Öberechlause","S’ Johr uschlause","S’ Johr iichlause",
+             "Strech","Zauren","Ein Zäuerli nehmen","Schellenschütten","Groscht","Hääss","Chräs/Chres","Rote Fetze",
+             "Ladehose","Sennehemp/Edelwysshemp","Armstössli","Strick","Läderlig","Bschläglig","Herkuleshoseträger","Schluch",
+             "Gümmele","Iichreese","Chügele/chrällele/perlele","Kördele","D’ War umetue","Blaare","Bechüe","Schlorziflade",
+             "Vesper")
+
+Beschreibung <- c("Runde, geschlitzte Glocke, wie sie früher im Pferdegeschirr eingesetzt wurde.","Grosse bauchige Kuhglocke",
+                  "Chlaus der vor der Brust und am Rücken meist eine gerade Anzahl Rollen trägt.","Chlaus, der vor der Brust und meist auch am Rücken eine Schelle trägt. Andere Chläuse mit einer Schelle, tragen diese an einem Strick über dem Oberschenkel und schwenken sie mit beiden Händen.","Chlaus, der mit mehreren auf gepolsterten Lederriemen befestigten Rollen vor der Brust und am Rücken am Anfang des Schuppels geht.","Chlaus mit Rollen, der am Ende des Schuppels geht.","Schöner Chlaus in Frauenkleidern mit Rollen.","Als Chlaus von Haus zu Haus gehen oder an bestimmten Zeitpunkten des Feiertages zu Chlausentreffen gehen.","Chläuse nähern sich, rhythmisch die Rollen schüttelnd und die Schellen schwingend, einem Haus oder Hof.","Chläuse entfernen sich von einem Haus oder einem Hof.","Am Neuen Silvester über Mitternacht hinaus ins neue Jahr hinein chlausen und zauren. Nicht jede Gemeinde kennt das Öberechlause.","Am Neuen Silvester das Jahresende auschlausen und auszauren.", "Am Neuen Silvester das neue Jahr nach Mitternacht mit Chlausen und Zauren empfangen.","Festgelegte Route von Haus zu Haus, von Hof zu Hof, welche ein Schuppel zurücklegt.", "Wortloses Jodeln, meist mehrstimmig mit Kehlkopfschlag.", "Einen Naturjodel singen.","Schellen schwingen, zum Klingen bringen","Kleidung (Hosen und Mantel, manchmal pellerinenartig) der Chläuse, die Naturmaterialien tragen.","Gewand, Kleid","Tannenreisig","Rotgemustertes Baumwolltuch, wird als Halstuch zum Edelweisshemd und zur «Ladehose» getragen.","Dunkelbraune Hose aus dickem Baumwollstoff mit quadratischem Latz.","Hellblaues Männerhemd mit eingewebten Edelweiss-Blumen.","Von Hand gestrickte Halbärmel mit Muster aus weissem Garn für die Rolli bei den schönen Chläusen.","Strick, der die Schelle der Schelli hält.","Gepolsterter Lederriemen, der die Rollen hält, auch Rollenträger genannt.","Mit Messingelementen, Kuh, Senn etc. beschlagener Hosenträger.","Dehnbarer Hosenträger, wie ihn die Kinder unter dem Groscht tragen.","Trinkhalm oder Gummischlauch, der zum Trinken nach dem Zauren gereicht wird, um das Trinken mit der Larve zu erleichtern. Den «eigenen» Trinkschlauch tragen manche Chläuse im Hosensack mit.","Einziehen von Gummifäden ins Groscht (s.o.), welche es erlauben, die Naturmaterialien regelmässig und einheitlich wirken zu lassen.","Den Groscht machen","Kügelchen nach vorgegebenem Muster aufnähen","Kordeln aufnähen.", "Die Groscht/Gwand an die Ausgangsstelle des Strechs oder bei Regen an die Stelle des Gwandwechsels bringen.","Weinen","Kleine Kühe mit Beinen und Kopf aus entsprechend gewachsenen und eingekürzten Ästen.","Kuchen- oder Blätterteig mit Birnenweggenmasse und einem Guss aus Rahm und Ei und Mehl.","Zeit am späteren Nachmittag.")
+
+data_table3 <- data.frame(Begriff, Beschreibung)
+
+knitr::kable(data_table3) %>% kable_styling(latex_options=c("scale_down", "HOLD_position"))
 ```
 

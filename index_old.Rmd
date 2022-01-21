@@ -8,7 +8,7 @@ output: html_document
 ## Silvesterchlausen - Glossar
 
 
-Das Silvesterchlausen ist eine stark ausgestaltete Tradition mit zahlreichen Elementen. Sie unterscheidet sich von Ort zu Ort in kleinen Feinheiten. Im Alltag haben sich besondere Begriffe etabliert, auch sie unterscheiden sich leicht in der Aussprache von Ort zu Ort.
+Das Silvesterchlausen ist eine stark ausgestaltete Tradition mit zahlreichen Elementen. Sie unterscheidet sich von Ort zu Ort in kleinen Feinheiten. Im Alltag haben sich besondere Begriffe etabliert, auch sie unterscheiden sich leicht in der Aussprache von Ort zu Ort. 
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
